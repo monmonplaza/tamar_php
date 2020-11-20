@@ -1,0 +1,80 @@
+//IPAD PRO
+
+@media screen and (max-width: 1025px) {
+  //GENERAL LAYOUT
+  .banner-sm {
+    height: 35vh;
+  }
+
+  // INDEX PAGE
+  .banner {
+    min-height: 50vh;
+    background-position: center 95rem;
+    .banner-wrapper {
+      width: 60%;
+    }
+  }
+
+  .index-about-content {
+    padding: 2rem;
+  }
+
+  //CONTACT MAP
+
+  .map-office-iframe {
+    iframe {
+      width: 60rem;
+    }
+  }
+
+  // OUR TEAM SINGLE PAGE
+
+  .member-list-info {
+    min-height: 50vh;
+  }
+
+  .employee-content-main {
+    border: none;
+    padding: 1rem 0;
+  }
+}
+
+//IPAD
+@media screen and (max-width: 769px) {
+  .banner .banner-wrapper {
+    width: 80%;
+  }
+
+  //PAGE_CONTACT
+  .page-contact form {
+    margin-bottom: 3rem;
+  }
+  .map-wrapper {
+    flex-direction: column;
+    .map-info-inner {
+      flex-direction: column;
+      iframe {
+        display: block;
+        height: 45rem;
+        width: 80rem;
+      }
+    }
+  }
+
+  .get-quote {
+    text-align: center;
+    h3 {
+      float: none;
+      margin-bottom: 2rem;
+    }
+
+    a {
+      float: none;
+    }
+  }
+
+  //FOOTER
+  .footer-box {
+    margin-bottom: 3rem;
+  }
+}

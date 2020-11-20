@@ -1,0 +1,27 @@
+.banner-page {
+  background: {
+    image: linear-gradient(rgba($primary-color, 0.2), rgba($dark-color, 0.9)),
+      url(../images/banner-accomodation.jpg);
+  }
+  min-height: 70vh;
+  width: 100%;
+  @include media-query(415px) {
+    min-height: 55vh;
+  }
+  .banner-content-page {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    h2 {
+      font-size: 8rem;
+      font-family: $primary-font-xbold;
+      line-height: 1;
+      color: $light-color;
+      text-transform: capitalize;
+      letter-spacing: 3px;
+      @include media-query(415px) {
+        font-size: 5rem;
+      }
+    }
+  }
+}

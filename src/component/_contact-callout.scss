@@ -1,0 +1,17 @@
+.contact-callout {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+    url(../img/main-banner.jpg);
+  height: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $light-color;
+
+  &-wrapper {
+    max-width: 70rem;
+    h2 {
+      font-size: 3.5rem;
+      font-weight: 300;
+    }
+  }
+}

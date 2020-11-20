@@ -1,0 +1,10 @@
+.contact-form {
+  background: {
+    image: linear-gradient(rgba($primary-color, 1), rgba($primary-color, 0.9)),
+      url("../images/banner.jpg");
+    position: center center;
+    repeat: no-repeat;
+    size: cover;
+  }
+  color: $light-color;
+}

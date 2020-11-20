@@ -1,0 +1,52 @@
+.restaurant-info {
+  ul {
+    display: flex;
+    li:last-child {
+      margin-left: 1rem;
+    }
+    li {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+}
+.restaurant-meals {
+  position: relative;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .meal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    outline: 1px solid rgba($secondary-color, 0.5);
+    outline-offset: -3rem;
+  }
+  &-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $light-color;
+    h3 {
+      font-size: 4rem;
+    }
+
+    a {
+      @include btn($secondary-color);
+      color: $light-color;
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    &:hover a {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

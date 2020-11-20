@@ -1,0 +1,84 @@
+.call-out {
+  @include clearfix();
+  padding: 3rem 0;
+  h3 {
+    margin-bottom: 0;
+    font-size: 2.3rem;
+    font-weight: 300;
+  }
+}
+
+.article-box {
+  border: 1px solid $lightgray-color;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+
+  img {
+    object-fit: cover;
+    height: 15rem;
+    width: 100%;
+    display: block;
+  }
+
+  &-content {
+    padding: 1rem;
+    min-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h3 {
+      font-size: 1.8rem;
+      color: $primary-color;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+    a {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.section-header {
+  margin-bottom: 3rem;
+  span {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+  }
+  h2 {
+    text-transform: uppercase;
+  }
+}
+
+.lower-book {
+  background: {
+    image: linear-gradient(rgba($dark-color, 0.7), rgba($dark-color, 0.7)),
+      url(../images/cta-lower.jpg);
+    size: cover;
+    position: center center;
+    repeat: no-repeat;
+  }
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .lower-book-content {
+    text-align: center;
+    color: $light-color;
+    h2 {
+      font-size: 4rem;
+      line-height: 1.2;
+      letter-spacing: 2px;
+      font-family: $primary-font-xbold;
+      margin-bottom: 3rem;
+      @include media-query(415px) {
+        font-size: 2.9rem;
+        line-height: 1.4;
+      }
+    }
+    .btn-cta {
+      @include btn($light-color);
+    }
+  }
+}

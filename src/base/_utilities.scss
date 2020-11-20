@@ -1,0 +1,246 @@
+//MARGIN/margin
+$spaceamount: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+@each $space in $spaceamount {
+  .m-#{$space} {
+    margin: #{$space}rem !important;
+  }
+
+  .mb-#{$space} {
+    margin-bottom: #{$space}rem !important;
+  }
+
+  .my-#{$space} {
+    margin: #{$space}rem 0 !important;
+  }
+
+  .p-#{$space} {
+    padding: #{$space}rem !important;
+  }
+
+  .py-#{$space} {
+    padding: #{$space}rem 0;
+  }
+  .px-#{$space} {
+    padding: 0 #{$space}rem !important;
+  }
+  .pr-#{$space} {
+    padding-right: #{$space}rem;
+  }
+}
+
+.no {
+  &-padding {
+    padding: 0 !important;
+  }
+
+  &-margin {
+    margin: 0 !important;
+  }
+  &-wrap {
+    white-space: nowrap;
+  }
+}
+
+//TEXT ALIGNMENT
+
+.text {
+  &-center {
+    text-align: center;
+  }
+  &-left {
+    text-align: left;
+  }
+
+  &-right {
+    text-align: right;
+  }
+
+  &-justify {
+    text-align: justify;
+  }
+
+  &-bold {
+    font-weight: bold;
+  }
+  &-italic {
+    font-style: italic;
+  }
+}
+
+// FLOATS
+
+.float {
+  &-left {
+    float: left;
+  }
+
+  &-right {
+    float: right;
+  }
+}
+
+.text {
+  &-primary {
+    color: $primary-color !important;
+  }
+
+  &-light {
+    color: $light-color !important;
+  }
+
+  &-dark {
+    color: $dark-color !important;
+  }
+}
+
+.bg {
+  &-primary {
+    color: set-text-color($primary-color);
+    @include set-background($primary-color);
+  }
+
+  &-secondary {
+    color: set-text-color($secondary-color);
+    @include set-background($secondary-color);
+  }
+
+  &-tertiary {
+    color: set-text-color($tertiary-color);
+    @include set-background($tertiary-color);
+  }
+
+  &-light {
+    color: set-text-color($light-color);
+    @include set-background($light-color);
+  }
+
+  &-dark {
+    color: set-text-color($dark-color);
+    @include set-background($dark-color);
+  }
+
+  &-transparent {
+    color: $primary-color;
+    background: transparent;
+    border: 1px solid $primary-color;
+  }
+  &-gray {
+    color: set-text-color($gray-color);
+    @include set-background($gray-color);
+  }
+  &-lightgray {
+    color: set-text-color($lightgray-color);
+    @include set-background($lightgray-color);
+  }
+}
+
+.d {
+  &-flex {
+    display: flex !important;
+  }
+
+  &-inline-block {
+    display: inline-block !important;
+  }
+  &-block {
+    display: block !important;
+  }
+  &-inline {
+    display: inline !important;
+  }
+}
+
+.no {
+  &-padding {
+    padding: 0;
+  }
+  &-border {
+    border-right: none !important;
+  }
+  &-marging {
+    margin: 0;
+  }
+}
+
+.hide {
+  @include media-query(1400px) {
+    &-lg {
+      display: none;
+    }
+  }
+  @include media-query(800px) {
+    &-md {
+      display: none;
+    }
+  }
+
+  @include media-query(550px) {
+    &-sm {
+      display: none;
+    }
+  }
+}
+
+.justify {
+  &-center {
+    justify-content: center;
+  }
+  &-start {
+    justify-content: flex-start;
+  }
+  &-end {
+    justify-content: flex-end;
+  }
+  &-between {
+    justify-content: space-between;
+  }
+  &-around {
+    justify-content: space-around;
+  }
+  &-evenly {
+    justify-content: space-evenly;
+  }
+}
+
+.align {
+  &-center {
+    align-content: center;
+  }
+}
+
+.width {
+  &-full {
+    width: 100% !important;
+  }
+  &-half {
+    width: 50%;
+  }
+}
+
+
+
+
+
+
+
+
+
+.open {
+  &-video {
+    display: flex!important;
+  }
+}
+
+.sm-only {
+  display: none;
+  @include media-query(420px) {
+    display: block;
+  }
+}
+
+.lg-only {
+  @include media-query(420px) {
+    display: none!important;
+  }
+}

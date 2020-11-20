@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// BREAKPOINTS
+$xs-screen: 380px;
+$sm-screen: 576px;
+$md-screen: 768px;
+$lg-screen: 1200px;
+$xl-screen: 1600px;
+$columns: 12;
+
+.container,
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+//container-sizing
+
+$breakpoint: (
+  $xs-screen: 370px,
+  $sm-screen: 540px,
+  $md-screen: 720px,
+  $lg-screen: 1120px,
+  $xl-screen: 1599px,
+);
+
+@each $min-width, $max-width in $breakpoint {
+  @media (min-width: $min-width) {
+    .container {
+      max-width: $max-width;
+    }
+  }
+}
+
+.container,
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  // width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+$width: (
+  xs: 375,
+  sm: 576,
+  md: 992,
+  lg: 768,
+  xl: 1200
+);
+
+@each $prefix, $size in $width {
+  @media screen and (min-width: $size + "px") {
+    @for $i from 1 through $columns {
+      .col-#{$prefix}-#{$i} {
+        flex: 0 0 100% / $columns * $i;
+        max-width: 100% / $columns * $i;
+      }
+    }
+  }
+}
+
+%column-style {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+$size-list: (xs, sm, md, lg, xl);
+@each $size in $size-list {
+  @for $i from 1 through $columns {
+    .col-#{$size}-#{$i} {
+      @extend %column-style;
+    }
+  }
+}

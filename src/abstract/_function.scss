@@ -1,0 +1,15 @@
+@function set-text-color($color) {
+  @if (lightness($color) > 60) {
+    @return $dark-color;
+  } @else {
+    @return $light-color;
+  }
+}
+
+@function changeColor($color) {
+  @if ($color == $light-color) {
+    @return $dark-color;
+  } @else {
+    @return $light-color;
+  }
+}

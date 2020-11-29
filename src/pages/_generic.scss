@@ -209,6 +209,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../images/shadow.png');
+    @include media-query(420px) {
+        padding: 5rem 3rem
+    }
     &-wrapper {
         text-align: center;
         max-width: 78rem;
@@ -225,16 +228,20 @@
 
 .template__services {
     padding: 7rem 0;
+    overflow: hidden;
     img {
         height: 55rem;
         width: 100%;
         max-width: 100%;
         object-fit: cover;
+        box-shadow: 6px 3px 22px rgba(0,0,0,0.3);    
+
     }
     &__content {
         padding: 5rem 2rem;
         max-width: 52rem;
         margin: 0 auto;
+  
 
         a {
             margin-top: 2rem;
@@ -251,8 +258,8 @@
 }
 
 .template__services.content-image {
-    .row .section__image {
-        order: 2
+    .row {
+        flex-direction: row-reverse;
     }
 
     .row .section__content {
@@ -261,6 +268,19 @@
 
 }
 
+
+// .template__services.image-content {
+//     .row {
+//         flex-direction: column;
+//     }
+
+//     .row .section__content {
+//         order: 1
+//     }
+
+// }
+
+
 //SHORTCODE TAB
 
 
@@ -268,6 +288,9 @@
     padding: 5rem 0;
     &__wrapper {
       display: flex;  
+      @include media-query(1200px) {
+          flex-direction: column-reverse;
+      }
     }
   
     &__btn {
@@ -394,7 +417,7 @@
 
 
 .image-content {
-    @include media-query(420px) {
+    @include media-query(990px) {
         .container .row .col-md-6:first-child {
             order: 1;
         }
@@ -419,7 +442,11 @@
     padding: 5rem 0 15rem 0;
     position: relative;
     background-color: $tertiary-color;
- 
+    &__header {
+        @include media-query(900px) {
+            max-width: 60rem;
+        }
+    }
     h2 {
         font-size: 4rem;
         position: relative;
@@ -479,6 +506,9 @@
                 border-bottom: 2px solid rgba($secondary-color, 1);
                 padding: 1rem 0;
                 text-align: center;
+                @include media-query(1600px) {
+                    font-size: 2rem;
+                }
             }
             img {
               margin: 0 auto;
@@ -489,6 +519,7 @@
             }
             &:hover {
                 top: 5rem; 
+             
             }
             &:hover + .overlay {
                 transform: translateY(-50%);
@@ -500,10 +531,20 @@
     .slick-arrow {
         position: absolute;
         top: -4rem;
+        @include media-query(420px) {
+            top: 105%;
+        }
     }
 
     .prev-arrow {
         left: 93%;
+        @include media-query(900px) {
+            left: 88%;
+        }
+
+        @include media-query(420px) {
+            left: 78%;
+        }
     }
     .next-arrow {
         right: 4rem;
@@ -511,13 +552,25 @@
 }
 
 
+.index__services.wedding__template {
+    .index__services__wrapper {
+        min-height: 30rem;
+    }
+
+}
+
 // SINGLE PAGE FOR Swiss Village
 
 .wrapper__swiss-single {
     display: flex;
-
+    @include media-query(800px) {
+        flex-direction: column;
+    }
     .swiss__img {
         flex-basis: 40%;
+        @include media-query(480px) {
+            margin-bottom: 4rem;
+        }
         img {
             width: 100%;
             height: 54rem;
@@ -529,7 +582,9 @@
         flex-basis: 60%;
         max-width: 74rem;
         overflow: hidden;
-   
+        @include media-query(480px) {
+            padding: 0 1.5rem;
+        }
         h3 {
             font-size: 5.8rem;
             margin-bottom: 5rem;
@@ -560,4 +615,140 @@
 
 
     }
+}
+
+
+// SHORTCODE FOR THE CALL TO ACTION
+
+.cta {
+    min-height: 60rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    .overlay {
+        width:100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        background: rgba(0,0,0,0.7);
+    }
+    &__wrapper {
+        text-align: center;
+        color: $light-color;
+        position: relative;
+        z-index: inherit;
+        h3 {
+            font-size:6rem;
+        }
+        p {
+             font-size: 2rem;
+         }
+
+         a {
+             @include btn($light-color);
+         }
+    }
+}    
+
+// EVENTS STYLE
+.events.image-content  {
+    background-color: $tertiary-color;
+}
+.events.image-content {
+    .row .events__image {
+        order: 1
+    }   
+   
+}
+
+.event.content-image {
+    .row .events__image {
+        order: 2
+    }   
+}
+
+.events {
+    padding: 7rem 0;
+    min-height:70rem;
+    margin-bottom: 15rem;
+    
+    &__image {
+        position: relative;
+        display:flex;
+        justify-content: center;
+        img {
+            position: absolute;
+            height:70rem;
+            width: 55rem;
+            margin: 0 auto;
+            object-fit: cover;
+            box-shadow: 6px 3px 22px rgba(0,0,0,0.3);
+        }
+    }
+
+    &__content {
+        max-width: 60rem;
+        margin: 0 auto;
+    }
+}
+
+.events.image-content{
+    .row .events__content {    
+        .block-header::before {
+            left:unset;
+            right:0;
+        }
+    }
+}
+
+.events.content-image{
+    .row .events__content {    
+        .block-header::before {
+            right:unset;
+            left:0;
+        }
+    }
+}
+
+.offers {
+    padding: 10rem 0;
+    &__img{
+        img {
+            width:100%;
+            height: 45rem;
+            object-fit: cover;
+            display: block;
+            
+        }
+    }
+    &__content {
+     
+      padding: 6rem 2rem;
+      background-color: $primary-color;
+      min-height: 100%;
+      width: 100%;
+      color: $light-color;
+      display: flex;
+      justify-content: center;
+      &__wrapper {
+        h3 {
+            font-size: 4rem;
+        }
+
+        a {
+            @include btn($light-color)
+        }
+         p{
+            max-width:40rem;
+         }
+      }
+      
+       
+    }  
 }

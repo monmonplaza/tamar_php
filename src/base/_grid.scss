@@ -24,11 +24,11 @@ $columns: 12;
 //container-sizing
 
 $breakpoint: (
-  $xs-screen: 370px,
-  $sm-screen: 540px,
-  $md-screen: 720px,
-  $lg-screen: 1120px,
-  $xl-screen: 1599px,
+  $xs-screen: 470px,
+  $sm-screen: 840px,
+  $md-screen: 1099px,
+  $lg-screen: 1400px,
+  $xl-screen: 1799px,
 );
 
 @each $min-width, $max-width in $breakpoint {

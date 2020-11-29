@@ -6,13 +6,23 @@ $(document).ready(function() {
     prevArrow: '<button class="slide-arrow prev-arrow"><i class="fas fa-angle-left fa-2x"></i></button>',
     nextArrow: '<button class="slide-arrow next-arrow"><i class="fas fa-angle-right fa-2x"></i></button>',
     responsive: [{
+      breakpoint: 720,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: false
+      }
+    },
+    {
       breakpoint: 420,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
         centerMode: false
       }
-    }]
+    }
+  
+  ]
   
   });
 
@@ -29,6 +39,23 @@ $(document).ready(function() {
     arrows: true,
     prevArrow: '<button class="slide-arrow prev-arrow"><img src="http://localhost/tamar/wp-content/themes/tamarresort/images/icon_arrow_prev.png"></button>',
     nextArrow: '<button class="slide-arrow next-arrow"><img src="http://localhost/tamar/wp-content/themes/tamarresort/images/icon_arrow_next.png"></button>',
+    responsive: [{
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        centerMode: false
+      }
+    },
+    {
+      breakpoint: 420,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: false
+      }
+    }
+    ]
   })
 
 

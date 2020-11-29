@@ -1,22 +1,22 @@
 <?php get_header(); 
-$top_page_url = str_replace('archives/', '',get_post_type_archive_link('facility'));
-
+$top_page_url = str_replace('archives/', '',get_post_type_archive_link('accommodation'));
 ?>
 <div class="banner-content">
      <a href="<?php echo $top_page_url ?>" class="go-back"><i class="fas fa-angle-left"></i> Back</a>
         <h1 class=""><?php the_field('page_header')?></h1>
     </div>
 </div> 
+
 <!-- END OF BANNER -->
 <?php
     global $post;
     
     $post_slug = $post->post_name;
-
+  
     if($post_slug == 'hotel') {
         $postType = 'room_type';
         $label = "Hotel";
-    } elseif($post_slug == 'chalets-family') {
+    } elseif($post_slug == 'chalets-family') {  
         $postType = 'chalets-family';
         $label = "Chalets & Family";
     } elseif($post_slug == 'villas-cabin') {
@@ -42,6 +42,7 @@ $top_page_url = str_replace('archives/', '',get_post_type_archive_link('facility
 
 
 <section class="index__services  <?php echo $orientation; ?> child">
+
     <div class="container">
         <div class="row">
             <div class="col-md-6 no-padding">
@@ -117,7 +118,6 @@ $top_page_url = str_replace('archives/', '',get_post_type_archive_link('facility
                 <div class="index__services__wrapper  bg-tertiary">
                     <div class="slider__wrapper">
                         <div  id="slick__slider" class="slick__slider">
-
                             <?php 
                               $galleryArr = get_field('room_gallery');    
                               $arr =  explode(',' , $galleryArr);
@@ -125,7 +125,6 @@ $top_page_url = str_replace('archives/', '',get_post_type_archive_link('facility
                                     echo "<div class='slick__item'><img src=". $img . "></div>" ;
                                }
                            ?>
-
                         </div>
                     </div>
                 </div>

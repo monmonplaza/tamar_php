@@ -54,7 +54,7 @@ button {
 }
 
 .content-image.child .slider__wrapper {
-  left: -5rem;
+  left: -3.5rem;
     @include media-query(420px) {
       left: 0rem;
     }
@@ -65,6 +65,8 @@ button {
     height: 55rem;
     position: relative;
     overflow: hidden;
+    box-shadow: 1px 5px 10px rgba(0,0,0,0.3);
+
     @include media-query(420px) {
       width: 100%;
     }

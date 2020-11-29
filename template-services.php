@@ -101,4 +101,12 @@
     wp_reset_postdata();
 ?>
 
+
+
+<?php
+    if(!empty(get_field('cta'))) {
+        echo do_shortcode(get_field('cta'));
+    }
+    
+?>
 <?php get_footer(); ?>

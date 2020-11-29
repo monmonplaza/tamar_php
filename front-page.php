@@ -112,7 +112,7 @@
           </div>
           <div class="col-md-6 no-padding">
             <div class="index__services__wrapper  bg-tertiary">
-              <div class="slider__wrapper">
+              <div class="slider__wrapper index">
                 <div class="service__slider slider">
                 <?php 
                 $slider = new WP_Query(array(
@@ -171,6 +171,7 @@
     )) ?>
     <?php if($events->have_posts()) : while($events->have_posts()) : $events->the_post(); ?>
 
+
       <div class="col-md-4 no-padding">
         <div class="other-services-box">
           <div class="other-services-box-overlay"></div>
@@ -186,7 +187,8 @@
               <p>
               <?php the_field('event_description')?>
               </p>
-              <a href="<?php the_permalink(); ?>" class="btn-other-services">Learn More</a>
+              <a href="<?php echo esc_url(site_url()) . '/' .  $post->post_name;
+  ?>" class="btn-other-services">Learn More</a>
             </div>
           </div>
         </div>
@@ -262,7 +264,7 @@
     </section>
 
 
-    <section class="offer-special py-7">
+    <!-- <section class="offer-special py-7">
       <div class="row">
       <div class="container">
         
@@ -305,9 +307,44 @@
             </div>
           </div>
         </div>
-     
-   
+    </section> -->
+
+    <?php
+              $offer = new WP_Query(array(
+                'pagename' => 'offers'
+              )); ?>
+ <?php if($offer->have_posts()) : while($offer->have_posts()) : $offer->the_post(); ?>
+
+    <section class="offers">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-8 no-padding">
+                <div class="offers__img">
+                 <?php if(has_post_thumbnail()) {
+                   the_post_thumbnail();
+                 }?> 
+                </div>
+            </div>
+
+            <div class="col-md-4  no-padding">
+                <div class="offers__content">
+                  <div class="offers__content__wrapper">
+                    <?php the_content();?>
+                    <a href="<?php echo esc_url(site_url('/offers')); ?>"> View Offers</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
     </section>
+
+    <?php endwhile;
+                  else: echo esc_html('No More Offerings');
+                endif;
+              wp_reset_postdata();
+          ?> 
+
+
 
 
 

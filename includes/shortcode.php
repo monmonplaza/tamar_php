@@ -21,11 +21,22 @@ endwhile;
 wp_reset_postdata(  );
 endif;
 
-
-
-
-
 $output = '<div class="tab__wrapper"><div class="tab__btn"><h2>Activities</h2><ul>'.  $tablink .' </ul></div><div class="tab__info">'.$tabContent .'</div></div>';
 
 return $output;
 }
+
+add_shortcode( 'cta', 'call_to_action');
+function call_to_action ($atts, $content) {
+    $option = shortcode_atts(array(
+                    'slug' => '',
+                    'bg_image' => '',
+                    'header' => '', 
+                    'body' => '', 
+                    'btn_label' => '' ),
+                 $atts);
+
+    $output = '<section class="cta" style="background-image:url('.$option['bg_image'].')"><div class="overlay"></div><div class="cta__wrapper"> <h3>'. $option['header'] .'</h3> <p>'. $option['body'] .'</p> <a href="'.esc_url(site_url($option['slug'])).'">'.$option['btn_label'].'</a></div> </section>';
+  
+    return $output;  
+} 

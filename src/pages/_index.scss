@@ -7,6 +7,8 @@
     padding: 10rem 0;
     position: relative;
     min-height: 76rem;
+  
+
     @include media-query(420px) {
       padding: 5rem 0;
       min-height: 55rem;
@@ -45,10 +47,30 @@
         width: 85rem;
         height: 55rem;
         display: block;
+        object-fit: cover;
+
+        @include media-query(1600px) {
+          width: 80rem;
+          
+        }
+
+        @include media-query(1450px) {
+          width: 75rem;
+          
+        }
+
+        @include media-query(1450px) {
+          width: 70rem;
+          
+        }
+
+        @include media-query(1280px) {
+          width: 100%;
+          
+        }
         @include media-query(420px) {
           height: 40rem;
-          width: 100%;
-          object-fit: cover;
+          
         }
       }
 
@@ -74,6 +96,10 @@
 
  .service__content__wrapper {
       padding: 0rem 10rem;
+      @include media-query(1280px) {
+        padding: 0rem 3rem;
+        
+      }
       @include media-query(420px) {
         padding: 2rem 1.5rem;
      }
@@ -88,12 +114,56 @@
 
 
 .index__services.image-content {
-  .container .row .col-md-6:first-child {
-    order: 2;
-    @include media-query(420px) {
-      order: 1;
+  .slick__slider {
+    width:105%;
+  }
+}
+
+.index__services.content-image {
+  .index__services__wrapper  {
+    .slider__wrapper.index {
+      left: 0;
     }
   }
+}
+
+
+.index__services.content-image {
+  .slick__slider {
+    width:105%;
+  }
+
+  .slider__wrapper{
+    left: -3.5rem
+  }
+}
+
+
+
+// .index__services.image-content {
+//   .container .row .col-md-6:first-child {
+//     order: 2;
+//     @include media-query(990px) {
+//       order: 1;
+//     }
+//   }
+
+  .index__services.image-content {
+    .container .row .col-md-6:first-child {
+      order: 2;
+      @include media-query(990px) {
+        order: 1;
+      }
+      
+    }
+
+  @include media-query(1280px) {
+    .service__content__wrapper {
+      padding-left: 3rem;
+    }
+  }
+
+
 
   .index__services__wrapper {
     padding: 10rem 0;
@@ -122,6 +192,7 @@
       left: 0;       
     }
   }
+
 }
 
 

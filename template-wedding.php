@@ -95,10 +95,7 @@ $query = new WP_query(array (
   }  
 
 ?>
-
-
-
-<section class="index__services  <?php echo $orientation; ?> child">
+<section class="index__services wedding__template  <?php echo $orientation; ?> child">
     <div class="container">
         <div class="row">
             <div class="col-md-6 no-padding">
@@ -106,16 +103,9 @@ $query = new WP_query(array (
                     <div class="service__content__wrapper">
                         <span class="block-tag">Reception</span>
                         <h2  class="block-header " ><?php the_title();?></h2>
-          
-
-                            <div class="main-text">
+                        <div class="main-text">
                             <?php the_content(); ?>
-
-                            </div>
-          
-                   
-                     
-                   
+                        </div>
                     </div>
                 </div>
             </div>
@@ -130,7 +120,6 @@ $query = new WP_query(array (
                                     echo "<div class='slick__item'><img src=". $img . "></div>" ;
                                }
                            ?>
-
                         </div>
                     </div>
                 </div>
@@ -142,7 +131,6 @@ $query = new WP_query(array (
 
 
 
-
 <?php 
     endwhile;
     else :
@@ -150,4 +138,14 @@ $query = new WP_query(array (
     endif;
     wp_reset_postdata();
 ?>
+
+
+<?php
+    if(!empty(get_field('cta'))) {
+        echo do_shortcode(get_field('cta'));
+    }
+    
+?>
+
+
 <?php get_footer(); ?>

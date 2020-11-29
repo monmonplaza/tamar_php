@@ -8,12 +8,15 @@ header {
     background-color: $light-color;
     display: flex;
     justify-content: flex-end;
-    padding: 1rem;
+    padding: .5rem;
+    @include media-query(990px) {
+      display: none;
+    }
     ul li {
       display: inline-block;
       margin-right: 2rem;
       margin-bottom: 0;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
     p {
       margin-right: 2rem;
@@ -24,7 +27,7 @@ header {
 .toggle-menu {
   position: absolute;
   right: 1rem;
-  top: 5rem;
+  top: 3.5rem;
   z-index: 9999;
   span {
     position: relative;
@@ -52,13 +55,16 @@ header {
   margin-right: 1rem;
   display: flex;
   flex-direction: row;
+
   p {
     margin-bottom: 0;
+    font-size: 1.4rem;
   }
   li {
+    align-self: center;
     a {
       color: $dark-color;
-      font-size: 1.8rem;
+      font-size: 1.4rem;
     }
   }
 }

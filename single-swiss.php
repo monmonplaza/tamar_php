@@ -77,6 +77,14 @@ $top_page_url = str_replace('archives/', '',get_post_type_archive_link('swiss'))
     </div>
 </section>
 
+<?php
+if(have_posts()) : while(have_posts()) : the_post();
+    if(!empty(get_field('cta'))) {
+        echo do_shortcode(get_field('cta'));
+    }
+        endwhile;
+    endif;
+?>
 
 
 <?php get_footer(); ?>

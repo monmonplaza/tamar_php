@@ -78,6 +78,8 @@
   }
 }
 
+
+
 @mixin figure-block($margin) {
   position: relative;
   margin: $margin;
@@ -119,4 +121,26 @@
     color: $color;
     text-decoration: underline;
   }
+}
+
+@mixin drop-shadow($level:0.3){
+  box-shadow: 1px 5px 10px rgba(155, 129, 129, $level);
+}
+
+
+@mixin box-shadow($level: 0.3) {
+  box-shadow: 1px 5px 10px rgba(0,0,0,$level);
+}
+
+
+@mixin btn-solid($color: $secondary){
+  color: rgb(255, 255, 255);
+    text-align: center;
+
+    background-color: $color;
+    transition: .5s ease;
+    padding: 1.2rem 2.5rem;
+    &:hover {
+      background-color: darken($color, 10);
+    }
 }

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,10 +7,10 @@
     <title>Document</title>
     <?php wp_head();?>
     
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
+    /> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
@@ -20,16 +19,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"> -->
 
   </head>
   <body>
 
   <?php
-
-  // THIS PATH IS FROM THE THEME OPTION
   $bgi= esc_attr(get_option('bg_image_path'));
-  // THIS IS FROM THE PAGE BANNER
   $page_banner = get_field('page_banner')['url'];
   $service_banner = get_field('service_banner')['url'];
   

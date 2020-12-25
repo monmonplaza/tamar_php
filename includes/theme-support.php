@@ -20,6 +20,7 @@ add_image_size( 'index-thumbnail', 550, 500, true );
 add_image_size( 'testimonial-thumbnail', 60, 60, true );  
 add_image_size( 'offer-thumbnail', 368, 230, true );  
 add_image_size( 'wedding-venue', 393, 740, true );  
+add_image_size( 'conference-venue', 447, 340, true );  
 add_image_size( 'offers-lg', 550, 700, true );  
  
 // THEME SUPPORT

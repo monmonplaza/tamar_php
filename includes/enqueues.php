@@ -2,7 +2,7 @@
 
 function tamar__assets() {
     wp_enqueue_style('tamar_style', get_template_directory_uri() . '/css/main.css',   microtime());
-    wp_enqueue_style('tamar_icon', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css',   microtime());
+    //wp_enqueue_style('tamar_icon', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css',   microtime());
     
     wp_enqueue_style('tamar_mobile', get_template_directory_uri() . '/css/mobile.css',  microtime());
     wp_enqueue_style('tamar_slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', array(),  microtime());

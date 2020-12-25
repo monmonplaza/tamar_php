@@ -28,7 +28,7 @@ $breakpoint: (
   $sm-screen: 840px,
   $md-screen: 1099px,
   $lg-screen: 1400px,
-  $xl-screen: 1799px,
+  $xl-screen: 1550px,
 );
 
 @each $min-width, $max-width in $breakpoint {

@@ -3,12 +3,7 @@ $top_page_url = str_replace('archives/', '',get_post_type_archive_link('facility
 
 ?>
 <div class="banner-content">
-
-
-
      <a href="<?php echo $top_page_url ?>" class="go-back"><i class="fas fa-angle-left"></i> Back</a>
-
-       
         <h1 class=""><?php the_field('page_header')?></h1>
     </div>
 </div> 
@@ -18,8 +13,24 @@ $top_page_url = str_replace('archives/', '',get_post_type_archive_link('facility
     <div class="container">
       <div class="row">
         <div class="col-md-10">
-        <?php if(have_posts()) : while(have_posts()) : the_post();
-                the_content(); ?>
+        <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+        
+                <div class="wrapper__swiss-single">
+                    <div class="swiss__img">
+                            <?php if(has_post_thumbnail()) {
+                                the_post_thumbnail();
+                            }?>
+                    </div>
+                    <div class="swiss_content">
+                        <span class="block-tag">Grindelwald</span>
+                        <h3><?php the_title();?></h3>
+                        <div class="main-text">
+                            <?php the_content();?>
+                            <a href="<?php esc_url(site_url('/contact')); ?>">Contact</a>
+                        </div>
+    
+                    </div>
+                </div>
 
                 <div class="operation__details">
                     <h3>Operation Details</h3>

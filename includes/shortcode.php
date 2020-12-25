@@ -40,3 +40,16 @@ function call_to_action ($atts, $content) {
   
     return $output;  
 } 
+
+
+//BIG BANNER
+add_shortcode( 'banner', 'huge_banner');
+function huge_banner($atts, $content) {  
+    $option = shortcode_atts(array(
+        'bg_image' => '',
+        'body' => '', 
+        ),
+     $atts);
+     $output = '<section class="shortcode_banner" style="background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),url('.$option['bg_image'].')"> <p>'.$option['body'] .'</p></section>';
+     return $output;  
+}

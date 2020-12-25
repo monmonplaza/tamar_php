@@ -7,11 +7,13 @@
     padding: 10rem 0;
     position: relative;
     min-height: 76rem;
+    // overflow: hidden;
   
 
     @include media-query(420px) {
       padding: 5rem 0;
       min-height: 55rem;
+      
     }
     &::after {
       content: '';
@@ -23,6 +25,7 @@
       background-color: $tertiary-color;
       @include media-query(420px) {
          right: -80rem;
+         display: none;
       }
     } 
 
@@ -44,7 +47,7 @@
     figure {
       position: relative;
       img {
-        width: 85rem;
+        width: 82rem;
         height: 55rem;
         display: block;
         object-fit: cover;

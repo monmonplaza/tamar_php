@@ -3,8 +3,8 @@ $(document).ready(function() {
     arrows: true,
     dots: true,
     slidesToShow: 3,
-    prevArrow: '<button class="slide-arrow prev-arrow"><i class="fas fa-angle-left fa-2x"></i></button>',
-    nextArrow: '<button class="slide-arrow next-arrow"><i class="fas fa-angle-right fa-2x"></i></button>',
+    prevArrow: '<button class="slide-arrow prev-arrow"><img src="http://demo.frontlinebusiness.com.ph/dev/tamar/wp-content/themes/tamarresort/images/icon_prev.png"></button>',
+    nextArrow: '<button class="slide-arrow next-arrow"><img src="http://demo.frontlinebusiness.com.ph/dev/tamar/wp-content/themes/tamarresort/images/icon_next.png"></button>',
     responsive: [{
       breakpoint: 720,
       settings: {
@@ -37,8 +37,8 @@ $(document).ready(function() {
   $(".ceremony__slider").slick({
     slidesToShow: 4,
     arrows: true,
-    prevArrow: '<button class="slide-arrow prev-arrow"><img src="http://localhost/tamar/wp-content/themes/tamarresort/images/icon_arrow_prev.png"></button>',
-    nextArrow: '<button class="slide-arrow next-arrow"><img src="http://localhost/tamar/wp-content/themes/tamarresort/images/icon_arrow_next.png"></button>',
+    prevArrow: '<button class="slide-arrow prev-arrow"><img src="http://demo.frontlinebusiness.com.ph/dev/tamar/wp-content/themes/tamarresort/images/icon_arrow_prev.png"></button>',
+    nextArrow: '<button class="slide-arrow next-arrow"><img src="http://demo.frontlinebusiness.com.ph/dev/tamar/wp-content/themes/tamarresort/images/icon_arrow_next.png"></button>',
     responsive: [{
       breakpoint: 1200,
       settings: {
@@ -59,9 +59,36 @@ $(document).ready(function() {
   })
 
 
+  $("#conference-slider").slick({
+    slidesToShow: 1,
+    arrows: true,
+    prevArrow: '<button class="slide-arrow prev-arrow"><img src="http://demo.frontlinebusiness.com.ph/dev/tamar/wp-content/themes/tamarresort/images/icon_prev.png"></button>',
+    nextArrow: '<button class="slide-arrow next-arrow"><img src="http://demo.frontlinebusiness.com.ph/dev/tamar/wp-content/themes/tamarresort/images/icon_next.png"></button>',
+    responsive: [{
+    breakpoint: 1200,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      centerMode: false
+    }
+  },
+  {
+    breakpoint: 420,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      centerMode: false
+    }
+  }
+  ]
+  });
+
+
   $(".slick__slider").slick({
     slidesToShow: 1,
     arrows: true,
+    // prevArrow: '<button class="slide-arrow prev-arrow"><img src="http://demo.frontlinebusiness.com.ph/dev/tamar/wp-content/themes/tamarresort/images/icon_prev.png"></button>',
+    // nextArrow: '<button class="slide-arrow next-arrow"><img src="http://demo.frontlinebusiness.com.ph/dev/tamar/wp-content/themes/tamarresort/images/icon_next.png"></button>',
   });
 
   const toggleMenu = document.querySelector(".toggle-menu");
@@ -164,13 +191,11 @@ window.addEventListener('DOMContentLoaded', function(){
   const tabBtns = document.querySelectorAll('.act__btn');
   
   
-  events();
-
+events();
 
  function events() {
-  // set the id of the btn and content of 
   setActId()
-  //add active on the first container on the list
+  setFoodNavID();
   tabInfos[0].classList.add('active');
   
   //click event of btn facilities
@@ -208,8 +233,15 @@ function setActId() {
       info.classList.remove('active')
     })
   }
-  
-
-
-
 })
+
+
+
+
+const foodItem = document.querySelectorAll('.food__nav__item');
+
+function setFoodNavID() {
+  foodItem.forEach(function(item, i) {
+    item.setAttribute('id', 'food-' + [i]);
+  })
+}

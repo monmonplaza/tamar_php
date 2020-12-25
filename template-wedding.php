@@ -16,12 +16,14 @@
 </div>
 
 
-<section class="wedding">
-    <div class="wedding__welcome">
-        <h2>Welcome</h2>
+<section class="wedding__about">
+    <div class="container">
+    <div class="wedding__about-wrapper">
+        <h3>Welcome</h3>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, repellendus id perspiciatis labore autem! Totam porro nesciunt cumque magnam qui accusamus, eius distinctio.</p>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, impedit?</p>
+    </div>
     </div>
 </section>
 

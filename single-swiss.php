@@ -16,6 +16,10 @@ $top_page_url = str_replace('archives/', '',get_post_type_archive_link('swiss'))
         
         <?php if(have_posts()) : while(have_posts()) : the_post();?>
                 <div class="wrapper__swiss-single">
+                    <?php 
+                       	global $post;
+                           // 						echo $post->ID;
+                   if($post->ID != 340) { ?> 
                     <div class="swiss__img">
                         <?php if(has_post_thumbnail()) {
                             the_post_thumbnail();
@@ -29,8 +33,14 @@ $top_page_url = str_replace('archives/', '',get_post_type_archive_link('swiss'))
                         <?php the_content();?>
                         <a href="<?php esc_url(site_url('/contact')); ?>">Contact</a>
                         </div>
-
                     </div>
+                       <?php } else {
+                          echo do_shortcode('[activity_list post_type="activity"]');
+                       }
+
+                    ?>
+
+                    
                 </div>
 
         

@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="footer-box ">
           <h3>Navigation</h3>
           <nav>
@@ -61,7 +61,7 @@
         </div>
       </div>
 
-      <div class="col-md-2">
+      <div class="col-md-3">
         <div class="footer-box">
           <div class="newsletter">
           <h3>NewsLetter</h3>

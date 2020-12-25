@@ -60,15 +60,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 no-padding section__image">
-                <!-- <div class="index__services__wrapper" >
-                    <div class="service__content__wrapper">
-                        <h2  class="block-header " ></h2>
-                        <p></p>
-                        <a href="<?php the_permalink();?>" class="btn-book"> Learn More</a>
-                    </div>
-                </div> -->
-
-                <div class="template__services__wrapper">
+                  <div class="template__services__wrapper">
                     <?php if(has_post_thumbnail() ) {
                         the_post_thumbnail();
                     }?>
@@ -84,7 +76,6 @@
                             <?php echo get_the_excerpt(); ?>
                         </div>
                         <a href="<?php the_permalink();?>" class="btn">Read More</a>
-
                     </div>
                 </div>
 

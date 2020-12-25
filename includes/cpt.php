@@ -339,7 +339,7 @@ $wedding_args = array(
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
         'capability_type'     => 'post',
-        'hierarchical'        => 'true'   ,
+        'hierarchical'        => true   ,
         // 'taxonomies'            => array( 'category'),
         'has_archive'         => true,
         'show_ui'             => true,
@@ -348,6 +348,36 @@ $wedding_args = array(
 );
 
 register_post_type( 'wedding', $wedding_args );
+
+
+$dining_menu_label  = array (
+    'name'          => __('Dining Menu ', 'textdomain'),
+    'singular_name' => __('Dining Menu', 'textdomain'),
+    'add_new'       => __('Add Dining Menu', 'textdomain'),
+    'add_new_item'  => __('Add New Dining Menu ', 'textdomain'),
+    'edit_item'     => __('Edit Dining Menu', 'textdomain'),
+    'all_items'     => __('Dining Menu ', 'textdomain')
+);
+
+
+$dining_menu_args = array(  
+        'labels'              => $dining_menu_label,
+        'public'              => true,
+        'show_in_menu'        => 'tamar_services',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'capability_type'     => 'post',
+        'hierarchical'        => true   ,
+        'taxonomies'          => array( 'food_category'),
+        'has_archive'         => true,
+        'show_ui'             => true,
+        'show_in_rest'        => true,
+        'rewrite'             => array('slug' => 'dining-menu'),
+        'supports'            => array( 'title', 'editor',  'thumbnail')
+);
+
+register_post_type( 'dining_menu', $dining_menu_args );
+
 
 
 }
@@ -385,28 +415,30 @@ register_taxonomy('room_type', ['tamar_accomadation'], $room_type_args);
 
 
 
-// $wedding_label = array(
-//     'name'              => _x('Wedding Info', 'taxonomy general name'),
-//     'singular_name'     => _x('Wedding Info', 'taxonomy singular name'),
-//     'search_items'      => __('Search Wedding Info'),
-//     'all_items'         => __('All Wedding Info'),
-//     'parent_item'       => __('Parent Wedding Info'),
-//     'parent_item_colon' => __('Parent Wedding Info:'),
-//     'edit_item'         => __('Edit Wedding Info'),
-//     'update_item'       => __('Update Wedding Info'),
-//     'add_new_item'      => __('Add New Wedding Info'),
-//     'new_item_name'     => __('New Wedding Info Name'),
-//     'menu_name'         => __('Wedding Info'),
-//     );
-//     $wedding_args = array(
-//     'hierarchical'      => true, // make it hierarchical (like categories)
-//     'labels'            => $wedding_label,
-//     'show_ui'           => true,
-//     'show_admin_column' => true,
-//     'query_var'         => true,
-//     'rewrite'           => ['slug' => 'wedding_info', 'with_front' => false, 'hierarchical' => true]
-//     );
-// register_taxonomy('wedding_info', 'wedding',  $wedding_args);
+
+$food_category_label = array(
+    'name'              => _x('Food Category', 'taxonomy general name'),
+    'singular_name'     => _x('Food Category', 'taxonomy singular name'),
+    'search_items'      => __('Search Food Category'),
+    'all_items'         => __('All Food Category'),
+    'parent_item'       => __('Parent Food Category'),
+    'parent_item_colon' => __('Parent Food Category:'),
+    'edit_item'         => __('Edit Food Category'),
+    'update_item'       => __('Update Food Category'),
+    'add_new_item'      => __('Add New Food Category'),
+    'new_item_name'     => __('New Food Category'),
+    'menu_name'         => __('Food Category'),
+    );
+    $food_category_args = array(
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $food_category_label,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => ['slug' => 'food-category', 'with_front' => false, 'hierarchical' => true]
+    );
+register_taxonomy('food_category', 'wedding',  $food_category_args);
 
 }
  add_action('init', 'tamar_custom_taxonomy', 0);
@@ -450,30 +482,30 @@ add_filter( 'wp_terms_checklist_args', 'tamar_room_type_term_radio_checklist' );
 
 
 
-// function tamar_wedding_info_radio_checklist( $args ) {
-//     if ( ! empty( $args['taxonomy'] ) && $args['taxonomy'] === 'wedding_info' ) {
-//         if ( empty( $args['walker'] ) || is_a( $args['walker'], 'Walker' ) ) { 
-//             if ( ! class_exists( 'Tamar_Wedding_Info_Walker_Category_Radio_Checklist' ) ) {
+function tamar_food_category_radio_checklist( $args ) {
+    if ( ! empty( $args['taxonomy'] ) && $args['taxonomy'] === 'food_category' ) {
+        if ( empty( $args['walker'] ) || is_a( $args['walker'], 'Walker' ) ) { 
+            if ( ! class_exists( 'Tamar_Food_Category_Walker_Category_Radio_Checklist' ) ) {
               
-//                 class Tamar_Wedding_Info_Walker_Category_Radio_Checklist extends Walker_Category_Checklist {
-//                     function walk( $elements, $max_depth, ...$args ) {
-//                         $output = parent::walk( $elements, $max_depth, ...$args );
-//                         $output = str_replace(
-//                             array( 'type="checkbox"', "type='checkbox'" ),
-//                             array( 'type="radio"', "type='radio'" ),
-//                             $output
-//                         );
+                class Tamar_Food_Category_Walker_Category_Radio_Checklist extends Walker_Category_Checklist {
+                    function walk( $elements, $max_depth, ...$args ) {
+                        $output = parent::walk( $elements, $max_depth, ...$args );
+                        $output = str_replace(
+                            array( 'type="checkbox"', "type='checkbox'" ),
+                            array( 'type="radio"', "type='radio'" ),
+                            $output
+                        );
 
-//                         return $output;
-//                     }
-//                 }
-//             }
+                        return $output;
+                    }
+                }
+            }
 
-//             $args['walker'] = new Tamar_Wedding_Info_Walker_Category_Radio_Checklist;
-//         }
-//     }
+            $args['walker'] = new Tamar_Food_Category_Walker_Category_Radio_Checklist;
+        }
+    }
 
-//     return $args;
-// }
+    return $args;
+}
 
-// add_filter( 'wp_terms_checklist_args', 'tamar_wedding_info_radio_checklist' );
+add_filter( 'wp_terms_checklist_args', 'tamar_food_category_radio_checklist' );

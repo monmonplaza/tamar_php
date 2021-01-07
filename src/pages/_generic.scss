@@ -945,6 +945,10 @@
     }  
     &__wrapper {
         margin-bottom:6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
         p{
           max-width: 55rem;
           @include media-query(1200px) {
@@ -997,10 +1001,18 @@
 .template_two_col {
     &__wrapper {
         padding: 10rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        
     }
-    &__wrapper.img-left {
+    &__wrapper.img-right,
+    &__wrapper.img-left  {
         background-color: $tertiary-color;    
         position: relative;
+     
+   
         img {
             width: 100%;
             height: 50rem;
@@ -1016,6 +1028,22 @@
             content: '';
             position: absolute;
             top: 0;
+            right: -56rem;
+            width: 56rem;
+            height: 100%;
+            background-color: $tertiary-color; 
+            @include media-query(420px) {
+                display: none;
+            }
+        }
+       
+    }
+
+    &__wrapper.img-left {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
             left: -56rem;
             width: 56rem;
             height: 100%;
@@ -1024,13 +1052,11 @@
                 display: none;
             }
         }
-
-       
     }
 
     &__content {
-        max-width: 55rem;
-        margin-left: auto;
+        max-width: 50rem;
+ 
         @include media-query(995px) {
             margin-left: 0;
             max-width: 75rem;
@@ -1053,6 +1079,10 @@
     }
     &__wrapper {
         padding: 10rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
     }
 
  
@@ -1084,7 +1114,7 @@
 
     &__content {
         max-width: 55rem;
-        margin-right: auto;
+       
         @include media-query(995px) {
             max-width: 75rem;
         }    
@@ -1174,5 +1204,119 @@
             background:$lightgray-color; ; 
         }
         
+    }
+}
+
+//Dining Menu
+
+.food__nav {
+    text-align: center;
+    ul {
+        display: flex;
+        max-width: 76rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        li {
+           font-size: 1.6rem;
+           margin: 0 1rem;
+           padding: .5rem 1.8rem;
+           cursor: pointer;
+           font-weight: bold;
+           border: 1px solid $secondary-color;
+           margin-bottom: 2rem;
+           border-radius: 1rem; 
+           @include media-query(520px) {
+            flex:0 0 40%;
+        }  
+        }
+    }
+}
+
+.dining__menu {
+    padding: 7rem 0;
+    &__header {
+       margin-left:-15px;
+       @include media-query(892px) {
+        padding: 0 2rem;
+       }
+   
+    }
+}
+.food__content {
+    min-height: 30rem;
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      
+
+        .food__item {
+            flex:0 0 50%;
+            padding:2rem;
+            margin-bottom: 2rem;
+            display: flex;   
+            @include media-query(892px) {
+                flex:0 0 50%;
+            }  
+
+            @include media-query(520px) {
+                flex:0 0 100%;
+            }  
+            .menu__info {
+                width: 100%;
+            }   
+
+            .food__intro__wrapper {
+                img {
+                    width: 100%;
+                    height: 45rem;
+                    object-fit: cover;
+                }
+
+                h3 {
+                    font-size: 4rem;
+                    line-height: 1;
+                    span {
+                        font-size: 2rem;
+                    }
+                }
+            }
+          
+
+       
+            .menu__header {
+                display: flex;
+                justify-content: space-between;
+                width: inherit;
+          
+                .note {
+                    font-style: italic;
+                    font-size: 1.6rem;
+                    color: $secondary-color;
+                }
+           
+            }
+        
+            .food__options {
+                h4 {
+                    margin-bottom: 1rem;
+                }
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    li {
+                        padding-right: .5rem;
+                        font-size: 1.4rem;
+                        line-height: 1.3;
+                        margin-bottom: 0;
+                    }
+
+                   
+                }
+            }
+          
+        }
     }
 }

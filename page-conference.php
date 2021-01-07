@@ -26,9 +26,11 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="conference__contact__wrapper">
-                    <span class="block-tag">Welcome</span>
-                    <h2  class="block-header ">Conferences</h2>
-                    <p><?php echo get_the_content(); ?></p>
+                    <div class="conference__contact__content">
+                        <span class="block-tag">Welcome</span>
+                        <h2  class="block-header ">Conferences</h2>
+                        <p><?php echo get_the_content(); ?></p>
+                    </div>
                 </div>
             </div>  
 

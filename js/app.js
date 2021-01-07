@@ -86,9 +86,12 @@ $(document).ready(function() {
 
   $(".slick__slider").slick({
     slidesToShow: 1,
+    arrows: true
+  });
+
+  $("#dining__slider").slick({
+    slidesToShow: 1,
     arrows: true,
-    // prevArrow: '<button class="slide-arrow prev-arrow"><img src="http://demo.frontlinebusiness.com.ph/dev/tamar/wp-content/themes/tamarresort/images/icon_prev.png"></button>',
-    // nextArrow: '<button class="slide-arrow next-arrow"><img src="http://demo.frontlinebusiness.com.ph/dev/tamar/wp-content/themes/tamarresort/images/icon_next.png"></button>',
   });
 
   const toggleMenu = document.querySelector(".toggle-menu");
@@ -196,7 +199,10 @@ events();
  function events() {
   setActId()
   setFoodNavID();
-  tabInfos[0].classList.add('active');
+  if(tabInfos[0]) {
+    tabInfos[0].classList.add('active');
+
+  }
   
   //click event of btn facilities
   tabBtns.forEach(function(btn){

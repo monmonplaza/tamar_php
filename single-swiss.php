@@ -35,7 +35,7 @@ $top_page_url = str_replace('archives/', '',get_post_type_archive_link('swiss'))
                         </div>
                     </div>
                        <?php } else {
-                          echo do_shortcode('[activity_list post_type="activity"]');
+                           echo do_shortcode("[activities]");
                        }
 
                     ?>

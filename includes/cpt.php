@@ -359,11 +359,10 @@ $dining_menu_label  = array (
     'all_items'     => __('Dining Menu ', 'textdomain')
 );
 
-
 $dining_menu_args = array(  
         'labels'              => $dining_menu_label,
         'public'              => true,
-        'show_in_menu'        => 'tamar_services',
+        // 'show_in_menu'        => 'tamar_services',
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
         'capability_type'     => 'post',
@@ -377,6 +376,34 @@ $dining_menu_args = array(
 );
 
 register_post_type( 'dining_menu', $dining_menu_args );
+
+
+
+$employment_label  = array (
+    'name'          => __('Employment ', 'textdomain'),
+    'singular_name' => __('Employment', 'textdomain'),
+    'add_new'       => __('Add Employment ', 'textdomain'),
+    'add_new_item'  => __('Add Employment   ', 'textdomain'),
+    'edit_item'     => __('Edit Employment', 'textdomain'),
+    'all_items'     => __('Employments ', 'textdomain')
+);
+
+$employment_args = array(  
+        'labels'              => $employment_label,
+        'public'              => true,
+        // 'show_in_menu'        => 'tamar_services',
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'capability_type'     => 'post',
+        'hierarchical'        => true   ,
+        'has_archive'         => true,
+        'show_ui'             => true,
+        'show_in_rest'        => true,
+        'rewrite'             => array('slug' => 'employment'),
+        'supports'            => array( 'title', 'editor')
+);
+
+register_post_type( 'employment', $employment_args );
 
 
 

@@ -264,55 +264,11 @@
     </section>
 
 
-    <!-- <section class="offer-special py-7">
-      <div class="row">
-      <div class="container">
-        
-          <div class="offer-special-wrapper">
-            <h3 class="primary-header text-center">Offers & Specials</h3>
-            <div class="row">
-            <?php
-              $offer = new WP_Query(array(
-                'post_type'         =>  'offer',
-                'posts_per_page'   =>  4
-                
-              )); ?>
-              <?php if($offer->have_posts()) : while($offer->have_posts()) : $offer->the_post(); ?>
-              <div class="col-md-3">
-                <div class="news-box">
-                  <div class="news-box-img">
-                      <?php if(has_post_thumbnail()) {
-                        the_post_thumbnail( 'offer-thumbnail', array('alt' => get_the_title()));
-                      }
-                      ?>
-                  </div> 
-                  <div class="news-box-content text-center">
-                  <div>
-                    <h3><?php the_title();?></h3>
-                    <p class="text-left">
-                     <?php echo  wp_trim_words(get_the_content(), 20)?>
-                    </p>
-                  </div>
-                    <a href="<?php the_permalink();?>">Read More</a>
-                  </div>
-                </div>
-              </div>
-
-              <?php endwhile;
-                  else: echo esc_html('No More Offerings');
-                endif;
-              wp_reset_postdata();
-          ?> 
-              </div>
-            </div>
-          </div>
-        </div>
-    </section> -->
 
     <?php
-              $offer = new WP_Query(array(
-                'pagename' => 'offers'
-              )); ?>
+      $offer = new WP_Query(array(
+        'pagename' => 'offers'
+      )); ?>
  <?php if($offer->have_posts()) : while($offer->have_posts()) : $offer->the_post(); ?>
 
     <section class="offers">

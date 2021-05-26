@@ -4,7 +4,7 @@ require get_template_directory() . '/includes/enqueues.php';
 require get_template_directory() . '/includes/cpt.php';
 require get_template_directory() . '/includes/shortcode.php';
 require get_template_directory() . '/includes/class.php';
-
+require get_template_directory() . '/includes/api.php';
 
 require get_template_directory() . '/includes/theme-support.php';
 

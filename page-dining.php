@@ -6,29 +6,31 @@
 </div> 
 
 
-<section class="template_two_col image-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 no-padding">
-                <div class="template_two_col__wrapper img-left">
-                <?php 
-                    $image = get_field('feature_image');
-                    if( !empty( $image ) ): ?>
-                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-                    <?php endif; ?>
-                </div>
-            </div>
 
-            <div class="col-md-6 no-padding">
-                <div class="template_two_col__wrapper">
-                   <div class="template_two_col__content">
-                   <span class="block-tag"><?php echo get_field('sub_header'); ?></span>
+<section class="conference__packages content-image">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="conference__packages__wrapper">
+                <div class="conference__packages__content">
+                <span class="block-tag"><?php echo get_field('sub_header'); ?></span>
                     <h2  class="block-header "><?php echo get_field('main_header'); ?></h2>
                     <p><?php echo get_the_content(); ?></p> 
-                   </div>
+
                 </div>
             </div>
         </div>
+        
+        <div class="col-md-6 no-padding">
+            <div class="conference__packages__wrapper img-right">
+            <?php 
+                $image = get_field('feature_image');
+                if( !empty( $image ) ): ?>
+                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
     </div>
 </section>
 
@@ -55,31 +57,127 @@
             </ul>
         </div>
 
+
         <div class="food__content">
             <div class="food__content__wrapper">
-               
+                <div class="food__item">
+                   <div class="food__item__intro">
+                        <div class="food__intro__wrapper">
+                            <?php 
+                                if(get_field('promo_banner'))  { ?>
+                                <img src="<?php echo get_field('promo_banner')['url'] ?>">        
+                                <?php } ?>
+                            
+                        </div>
+                   </div>
+                </div>   
+
+                <div class="food__item">
+                    <div class="food__intro__wrapper">
+                        <?php echo get_field('promo_description'); ?>            
+                    </div>
+                </div>
             </div>        
         </div>
+
         
      </div>
 </section>
 
 
+<?php
+    if(!empty(get_field('cta'))) {
+        echo do_shortcode(get_field('cta'));
+    }
+    
+?>
+
+
 <?php get_footer(); ?>
 
 <script>
-getMenu()
+
+
+const wrapper = document.querySelector('.food__content__wrapper');
+
+
+loadMenuID()
+
+function loadMenuID() {
+const foodNav = document.querySelectorAll('.food__nav__item');
+
+foodNav.forEach((btn)=> {
+    btn.addEventListener('click', () => {
+       let id = btn.getAttribute('data-id');
+       removeMenuList()
+       getMenu(id)
+        });
+    })
+}
+
+async function getMenu(id) {
+    const res = await fetch( `http://localhost/tamar/wp-json/wp/v2/dining_menu?food_category=${id}`);
+    const data = await res.json();
+    const foodMenu = data;
     
-    function getMenu() {
-        fetch('http://localhost/tamar/wp-json/wp/v2/dining_menu?food_category=21')
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.log('something happened'))
+
+    let option, remarks, thumbnail, no__image__class ;
+    foodMenu.forEach(item => {
+    const foodContentWrapper = document.createElement('div');
+   
+    foodContentWrapper.classList.add('food__item');    
+   
+    if(item.ACF.remarks !== undefined) {
+        remarks = `- <span class="note">${item.ACF.remarks}</span>`;
+    } else {
+        remarks =""
+    }
+    
+
+    if(item.ACF.option.length !== 0) {
+        option = ` 
+        <h4>Options</h4>
+            <ul>
+            ${item.ACF.option.map(option => `<li>${option}</li>`).join("")}
+            </ul>
+        `
+    } else {
+        option = "";  
     }
 
 
-    function createMenu(data) {
+        if(item.ACF.thumbnail == undefined) {
+            thumbnail = '';
+            no__image__class = "no__img";
+        } else {
+            thumbnail = item.ACF.thumbnail
+        }
 
-    }
+
+ 
+    foodContentWrapper.innerHTML = `
+        <div class="food__thumbnail ${no__image__class}"><img src="${thumbnail}" /></div>
+        <div class="menu__info">
+        <div class="menu__header">  <h3>${item.title.rendered}  ${remarks} </h3> <h3>${item.ACF.price}</h3> </div>
+        <p>${item.ACF.description}</p>
+        <div class="food__options">
+            ${option}
+        </div>
+    `;
+if(wrapper) {
+        wrapper.appendChild(foodContentWrapper);
+        }
+    });
+}
+
+function removeMenuList() {
+    const foodItem = document.querySelectorAll('.food__item');
+    foodItem.forEach((item)=>{
+        item.remove();
+    })
+}
+
+
+
 
 </script>

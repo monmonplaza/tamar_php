@@ -247,7 +247,7 @@
     &-overlay {
       position: absolute;
       z-index: 2;
-      background-color: rgba(#0d3d58, 0.9);
+      background-color: rgba(#242424, 0.9);
       width: 100%;
       height: 100%;
       outline: 2px solid $light-color;
@@ -266,13 +266,14 @@
 
 .testimonial {
   background: $tertiary-color;
-
-
   &-slider-item {
     padding: 4rem 6rem;
     color: $light-color;
-    min-height: 40rem;
+    min-height: 50rem;
     outline: none;
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
     background: {
      
       size: cover;
@@ -283,8 +284,9 @@
       max-width: 50rem;
       margin: 0 auto;
       h3 {
-        font-size: 2.8rem;
+        font-size: 2rem;
         line-height: 1;
+        color: $secondary-color;
       }
       ul {
         display: flex;
@@ -311,7 +313,7 @@
       rgba($dark-color, 0.7),
       rgba($dark-color, 0.7)
     ),
-    url(../images/index-accomodation.jpg);
+    url(../images/bg-testimonial.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -355,4 +357,6 @@
       }
     }
   }
-}
+}  
+
+   

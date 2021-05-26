@@ -5,7 +5,8 @@
 ?>
 
 <?php get_header(); ?>
-    <div class="banner-content">
+
+<div class="banner-content">
     <?php global $post;
         $parentId = $post->post_parent;
         $linkToParent = get_permalink($parentId);

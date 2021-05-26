@@ -26,13 +26,12 @@
 
   <?php
   $bgi= esc_attr(get_option('bg_image_path'));
-  $page_banner = get_field('page_banner')['url'];
-  $service_banner = get_field('service_banner')['url'];
-  
+  $page_banner = isset(get_field('page_banner')['url']) ? get_field('page_banner')['url'] : null;
+  // $service_banner = get_field('service_banner')['url'];
+
   if(is_front_page()) {
       echo '<div class="banner" style="background-image: url('. $bgi . ')">';
   } else {
-    
      echo '<div class="banner-page" style="background-image: url('. $page_banner .')">';
   }
 

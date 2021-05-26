@@ -1,0 +1,129 @@
+.template {
+    padding: 10rem 0 5rem 0;
+   &-main-body-grid {
+       display: grid;
+       grid-template-columns: 25rem 1fr 17rem;
+       grid-gap: 5rem;
+       margin-top: 5rem;
+       @include media-query(1200px) {
+        grid-template-columns: 13rem 1fr 8rem;
+       }
+       @include media-query(520px) {
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+       }
+   }
+
+   &-gobackhome {
+       ul {
+           li {
+               line-height: 1;
+           }
+           li:first-child {
+              text-transform: uppercase;
+              opacity: .5;
+              font-size: 1.2rem;
+           }
+           li:last-child {
+               font-weight: bold;
+               text-transform: uppercase;
+               font-size: 2rem;
+              a {
+                  color: $gray-color;
+                  &:hover {
+                      text-decoration: underline;
+                  }
+               }
+           }
+        }
+    }
+
+    &-socialmedia {
+        ul {
+            li {
+                text-align: right;
+            }
+            a {
+                font-size: 1.4rem;
+                text-transform: uppercase;
+                }
+            i.fab {
+                font-size: $light-color;
+                opacity: .5;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .body-wrapper {
+        .body-intro {
+            max-width: 60rem;
+            margin-bottom: 2rem;
+            h3 {
+                font-size: 2rem;
+                @include media-query(520px) {
+                    font-size: 2.5rem;
+                    line-height: 1.4;
+                }
+            }
+        }
+
+        &-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 2rem;
+            @include media-query(520px) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .body-indent {
+            margin-left: 8rem;
+            max-width: 70rem;
+            @include media-query(1200px) {
+                margin-left: 0rem;
+            }
+           img {
+               display: block;
+               margin-bottom: 4rem;
+               height: 45rem;
+               width: 120%;
+               object-fit: cover;
+               object-position: center center;
+               @include media-query(520px) {
+                   width: 100%;
+               }
+           }
+        }
+
+  
+        .body-note {
+            float: right;
+            padding: 2rem;
+            min-width: 25rem;
+            background-color: $tertiary-color;
+            margin: 0 3rem;
+            border: 1px solid $lightgray-color;
+            border-radius: .5rem;
+            @include media-query(520px) {
+                float: none;
+                margin: 0 ;
+                width: 100%;
+            }
+            ul {
+                li {
+                    font-size: 1.4rem;
+                }
+            }
+          
+        }
+
+        .body-flex {
+            @include media-query(520px) {
+                display: flex;
+                flex-direction: column-reverse;
+            } 
+        }
+    }
+}
+

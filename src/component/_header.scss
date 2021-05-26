@@ -102,7 +102,30 @@ header {
     padding: 1rem;
     margin-left: 5rem;
     @include media-query(420px){
-      margin-left: 0rem;
+      margin: 0 auto;
+      overflow-y: auto;
+      height: 50rem;
+      width: 95%;
+      /* width */
+        &::-webkit-scrollbar {
+          width: 5px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+          background: $secondary-color;
+          border-radius: 1rem;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+          background: darken($secondary-color, 10)
+        }
     }
     li {
       text-align: left;
@@ -110,12 +133,14 @@ header {
       align-items: center;
       @include media-query(420px){
         flex-direction: column;
+        align-items: flex-start;
+    
       }
       &:hover > a {
         color: $secondary-color;
       }
       a {
-        font-size: 4.5rem;
+        font-size: 2.5rem;
         font-weight: bolder;
         letter-spacing: 3px;
         transition: 0.5s ease;
@@ -127,12 +152,15 @@ header {
         opacity: 0;
         transition: 0.5s ease;
         @include media-query(420px){
-       display: none;
+          flex-direction: column;
+          opacity: 1;
+          padding-top: 0rem;
+
         }
         li {
-          margin-left: 2rem;
+          margin-left: 1.5rem;
           a {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             text-transform: uppercase;
             position: relative;
             &::before {
@@ -148,7 +176,6 @@ header {
           }
         }
       }
-
     }
   }
 }
@@ -181,6 +208,19 @@ nav li:hover ul,
 nav li.submenu-item:hover + .link-blurb {
   animation: slide-up 0.5s linear;
   opacity: 1;
+  @include media-query(420px){
+    animation: unset;
+    opacity: 1;
+  }
+}
+
+.dropdown-menu {
+  @include media-query(420px){
+    transition: max-height .5s ease;
+    max-height: 0rem;
+    overflow:hidden;
+    padding-top: 0;
+  }
 }
 
 nav ul.dropdown-menu:hover li.submenu-item + .link-blurb{
@@ -204,7 +244,7 @@ nav li ul li a:hover::before {
       color: #fff;
     }
   }
-}
+}   
 
 .contact-info-menu {
   position: absolute;
@@ -212,8 +252,7 @@ nav li ul li a:hover::before {
   right: 4rem;
   display: flex;
   @include media-query(420px ) {
-    flex-direction: column;
-    left:1rem;
+    display: none;
   }
   li {
     margin-right: 3rem;
@@ -372,4 +411,10 @@ nav li ul li a:hover::before {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.dropdown-menu.openDropDown {
+  @include media-query(420px) {
+    max-height: 15rem;
+  }
 }

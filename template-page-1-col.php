@@ -1,6 +1,6 @@
 <?php 
 /*
-    Template Name: 2-columns
+    Template Name: 1-column
 */
 ?>
 
@@ -15,8 +15,7 @@
 <section class="template">
     <div class="container">
     <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
-      
-    <div class="template-grid">
+        <div class="template-grid">
             <div class="template-empty">
 
             </div>
@@ -34,22 +33,11 @@
                         </div>
                         <div class="body-wrapper">
                         <div class="template-main-header">
-                            <h2 class="block-header"><?php the_title(); ?></h2> 
-                        </div>
-                            <div class="body-flex">
-                                <div class="body-note">
-                                    <?php the_field('sidebar_note')?>   
-                                </div>
+                    <h2 class="block-header"><?php the_title(); ?></h2> 
+                </div>
+                            <?php echo get_the_content(); ?>
 
-                                <div class="body-content">
-                                    <?php echo get_the_content(); ?>
-                                </div>
-
-                               
-                            </div>
-                         
-                           
-                         
+                            
                         </div>  
 
                         <div class="template-socialmedia">
